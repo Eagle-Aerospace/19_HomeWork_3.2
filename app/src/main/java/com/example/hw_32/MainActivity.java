@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     // задание дополнительных полей координат кота Шрёдингера
     //Random r = new Random();//r.nextInt(coordinatesOut.getWidth());//r.nextInt(coordinatesOut.getHeight());
-    private final float xCat = 700;  // задание поля для координаты X
-    private final float yCat = 1000;  // задание поля для координаты Y
+    private final float xCat = 500;  // задание поля для координаты X
+    private final float yCat = 900;  // задание поля для координаты Y
     private final float deltaCat = 50; // допустимая погрешность в нахождении кота
 
     @Override
@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                     if (x < (xCat + deltaCat) && x > (xCat - deltaCat) && y < (yCat + deltaCat) && y > (yCat - deltaCat)) { // если пользователь коснулся места нахождения кота
                         // размещаем тост (контекст, сообщение, длительность сообщения)
                         Toast toast = Toast.makeText(getApplicationContext(), R.string.successful_search, Toast.LENGTH_SHORT); // инициализация
-                        toast.setGravity(Gravity.CENTER, (int) (x - coordinatesOut.getWidth()/2),(int) (y - coordinatesOut.getHeight()/2)); // задание позиции на экране (положение, смещение по оси Х, смещение по оси Y)
+//                        toast.setGravity(Gravity.CENTER, (int) (x - coordinatesOut.getWidth()/2),(int) (y - coordinatesOut.getHeight()/2+250)); // задание позиции на экране (положение, смещение по оси Х, смещение по оси Y)
+                        toast.setGravity(Gravity.CENTER, (int) (xCat-coordinatesOut.getWidth()/2),(int) (yCat-coordinatesOut.getHeight()/2+250)); // задание позиции на экране (положение, смещение по оси Х, смещение по оси Y)
                         // помещение тоста в контейнер
                         LinearLayout toastContainer = (LinearLayout) toast.getView();
                         // добавление в тост картинки
